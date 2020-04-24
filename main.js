@@ -5,9 +5,9 @@ const path = require("path");
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    // width: 800,
-    // height: 600,
-    fullscreen: true,
+    width: 1280,
+    height: 800,
+    // fullscreen: true,
     // frame: false,
     webPreferences: {
       nodeIntegration: true,
@@ -19,7 +19,7 @@ function createWindow() {
   mainWindow.loadURL("http://localhost:8080");
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished

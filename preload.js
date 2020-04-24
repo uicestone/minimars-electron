@@ -1,6 +1,9 @@
-global.electron = require("electron");
-window.ipcRenderer = require("electron").ipcRenderer;
-window.remote = require("electron").remote;
+// global.electron = require("electron");
+// window.ipcRenderer = require("electron").ipcRenderer;
+const { remote } = require("electron");
+remote.printBands = require("./printBands");
+
+global.remote = remote;
 
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
