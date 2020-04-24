@@ -16,10 +16,16 @@ function createWindow() {
   });
 
   // and load remote site.
-  mainWindow.loadURL("http://localhost:8080");
+  mainWindow.loadURL(
+    isDev() ? "http://localhost:8080" : "https://s.mini-mars.com"
+  );
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  isDev() && mainWindow.webContents.openDevTools();
+}
+
+function isDev() {
+  return process.argv[2] == "--dev";
 }
 
 // This method will be called when Electron has finished
