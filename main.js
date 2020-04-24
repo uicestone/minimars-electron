@@ -10,12 +10,13 @@ function createWindow() {
     fullscreen: true,
     // frame: false,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js")
-    }
+      nodeIntegration: true,
+      preload: path.join(__dirname, "preload.js"),
+    },
   });
 
   // and load remote site.
-  mainWindow.loadURL("https://s.mini-mars.com");
+  mainWindow.loadURL("http://localhost:8080");
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
