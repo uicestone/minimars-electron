@@ -11,14 +11,16 @@ module.exports = async function (data, copy = 1) {
       device.write("^II");
       device.write("^ONmobile\x00");
       device.write(
-        `^DI${String.fromCharCode(data.mobile.length)}\x00${data.mobile}`
+        `^DI${String.fromCharCode(data.data1.length)}\x00${data.data1}`
       );
       device.write("^ONtime\x00");
       device.write(
-        `^DI${String.fromCharCode(data.time.length)}\x00${data.time}`
+        `^DI${String.fromCharCode(data.data2.length)}\x00${data.data2}`
       );
-      device.write("^ONqr\x00");
-      device.write(`^DI${String.fromCharCode(data.qr.length)}\x00${data.qr}`);
+      if (data.qr) {
+        device.write("^ONqr\x00");
+        device.write(`^DI${String.fromCharCode(data.qr.length)}\x00${data.qr}`);
+      }
       device.write("^ID");
       device.write("^FF");
     });
