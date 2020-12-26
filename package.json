@@ -1,12 +1,12 @@
 {
   "name": "minimars-electron",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "MINI MARS 管理后台桌面容器",
   "main": "main.js",
   "scripts": {
     "start": "electron . --dev",
     "rebuild": "./node_modules/.bin/electron-rebuild",
-    "build:mac": "electron-builder build --mac dmg",
+    "build:mac": "electron-builder build --mac dir",
     "build:win": "electron-builder build --win portable"
   },
   "repository": "https://github.com/electron/electron-quick-start",
@@ -14,11 +14,11 @@
   "author": "Uice Lu",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^8.2.3",
+    "electron": "^8.5.5",
     "electron-builder": "^22.5.1"
   },
   "dependencies": {
-    "escpos-usb": "^3.0.0-alpha.2"
+    "escpos-usb": "^3.0.0-alpha.4"
   },
   "postinstall": "electron-builder install-app-deps"
 }

@@ -17,7 +17,7 @@ function createWindow() {
 
   // and load remote site.
   mainWindow.loadURL(
-    isDev() ? "http://localhost:8080" : "https://s.mini-mars.com"
+    isDev() ? "http://localhost:8081" : "https://s.mini-mars.com"
   );
 
   // Open the DevTools.
