@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, protocol } = require("electron");
 const path = require("path");
 
 function createWindow() {
@@ -28,10 +28,21 @@ function isDev() {
   return process.argv[2] == "--dev";
 }
 
+protocol.registerSchemesAsPrivileged([
+  {
+    scheme: "http",
+    privileges: {
+      bypassCSP: true,
+      secure: true,
+      supportFetchAPI: true,
+      corsEnabled: true,
+    },
+  },
+]);
+app.allowRendererProcessReuse = false;
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.allowRendererProcessReuse = false;
 app.whenReady().then(createWindow);
 
 // Quit when all windows are closed.
